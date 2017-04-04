@@ -152,7 +152,7 @@
             }
             else if(m.value.indexOf("/share customSmileys") == 0)
             {
-                m.value = "GreaseMonkey script for Custom Smileys for these chats: [url=https://dl.dropboxusercontent.com/u/21054366/chathe.net%20emoticon%20override.user.js]Install link[/url]"+(m.value.split('/share customSmileys')[1]);
+                m.value = "GreaseMonkey script for Custom Smileys for these chats: [url=https://github.com/Nealefelaen/chathenet_extensions/raw/master/chathe.net%20emoticon%20override.user.js]Install link[/url]"+(m.value.split('/share customSmileys')[1]);
                 m.value +="\nOr you can load the script natively on the page with: /use customSmileys\nOnce installed, to display the available smileys use: /show customSmileys";
             }
             for(var i=0; i<smileyArray.length; i++)
