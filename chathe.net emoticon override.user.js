@@ -62,7 +62,7 @@
         [":O", 'https://i.imgur.com/JGzmkc0.gif'],
         [":-O", 'http://e.deviantart.net/emoticons/e/eek.gif'],
         [":wave:", 'https://i.imgur.com/OR5qCzd.gif'],
-        [":sadpanda:", 'https://orig06.deviantart.net/9c2c/f/2010/162/8/b/_sadpanda__by_stuck_in_suburbia.gif'],
+        [":sadpanda:", 'http://digital-impulse.com/wp-includes/images/smilies/digicons-SadPanda.png'],
         [":paddle:", 'https://static.passthepopcorn.me/static/common/smileys/paddle.gif'],
         [":phew:", 'http://i.imgur.com/6IIOT2l.gif'],
         [":phew2:", 'http://i.imgur.com/KVt6UE1.gif'],
