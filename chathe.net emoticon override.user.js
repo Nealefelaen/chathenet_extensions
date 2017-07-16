@@ -126,6 +126,7 @@
         [":monstermash:", 'https://orig04.deviantart.net/2184/f/2011/303/b/8/monster_mash_by_mirz123-d4egehi.gif'],
         [":owlnoid:", 'https://orig13.deviantart.net/4299/f/2014/053/3/d/3d1a858312d2ae72bc1342244103cb38-d1l8bbz.gif'],
         [":suspicious:", 'https://img03.deviantart.net/21c5/i/2006/008/a/d/_suspicious_by_sml_e.gif'],
+        [":glee:", 'https://orig09.deviantart.net/a7f9/f/2008/276/e/6/_squee__by_synfull.gif'],
         //["::", ''],
         ];
     smileyArray.sort(sortSmileys);
