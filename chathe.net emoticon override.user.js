@@ -127,6 +127,7 @@
         [":owlnoid:", 'https://orig13.deviantart.net/4299/f/2014/053/3/d/3d1a858312d2ae72bc1342244103cb38-d1l8bbz.gif'],
         [":suspicious:", 'https://img03.deviantart.net/21c5/i/2006/008/a/d/_suspicious_by_sml_e.gif'],
         [":glee:", 'https://orig09.deviantart.net/a7f9/f/2008/276/e/6/_squee__by_synfull.gif'],
+        ["\o/", 'https://orig08.deviantart.net/8b49/f/2011/146/d/6/yay_by_sml_e-d2hje6p.gif'],
         //["::", ''],
         ];
     smileyArray.sort(sortSmileys);
