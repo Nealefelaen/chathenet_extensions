@@ -527,7 +527,7 @@ function animateUsername(span)
     //var color=span.style.color;
     //span.setAttribute('style', 'font-weight: bold; color: '+color+'; animation: 20s usernameColor linear infinite;');
     //span.setAttribute('style', 'font-weight: bold; color: '+color+'; -webkit-filter:saturate(200%) contrast(165%) drop-shadow(0px 0px 7px black);');
-    span.innerHTML = "<img style='transform: rotateY(180deg); height: 21px;' title=':chameleon:' src='https://static.chathe.net/img_proxy.php?u=http://www.allmystery.de/i/t659323_ChamC3A4leon.gif' />";
+    span.innerHTML = "<img style='transform: rotateY(180deg); height: 21px;' title=':chameleon:' src='https://static.chathe.net/img_proxy.php?u=www.allmystery.de%2Fi%2Ft659323_ChamC3A4leon.gif' />";
     //span.innerHTML = "&lt;<span style='animation: rainbow 20s; border-radius: 30px;'>Nana</span>&gt;";
     //var style = span.getAttribute('style');
     //span.setAttribute('style', style+'; color: #A5DEE4; text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 6px #ff4918, 0 0 4px #ff4918, 0 0 12px #ff4918, 0 0 55px #ff4918, 0 0 8px #ff4918;');
