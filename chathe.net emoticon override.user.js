@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.18
+// @version      0.19
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -129,6 +129,9 @@
         [":glee:", 'https://orig09.deviantart.net/a7f9/f/2008/276/e/6/_squee__by_synfull.gif'],
         ["\\o/", 'https://orig08.deviantart.net/8b49/f/2011/146/d/6/yay_by_sml_e-d2hje6p.gif'],
         [":fingerscrossed:", 'https://i.imgur.com/4HPA0j4.png'],
+        [":police:", 'https://orig00.deviantart.net/60b7/f/2011/124/f/4/policeman_emote_by_mirz123-d3fk1qs.png'],
+        [":hitandrun:", 'https://orig00.deviantart.net/ca85/f/2009/058/0/d/onashii___hit_and_run_by_emoticiety.gif'],
+        [":policecar:", 'https://chathe.net/images/emoji/oncoming_police_car.png'],
         //["::", ''],
         ];
     smileyArray.sort(sortSmileys);
