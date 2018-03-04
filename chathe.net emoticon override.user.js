@@ -132,6 +132,7 @@
         [":police:", 'https://orig00.deviantart.net/60b7/f/2011/124/f/4/policeman_emote_by_mirz123-d3fk1qs.png'],
         [":hitandrun:", 'https://orig00.deviantart.net/ca85/f/2009/058/0/d/onashii___hit_and_run_by_emoticiety.gif'],
         [":policecar:", 'https://chathe.net/images/emoji/oncoming_police_car.png'],
+        [":puke:", 'https://orig00.deviantart.net/445b/f/2009/178/e/0/puking_emoticon_by_sheep0creator.gif'],
         //["::", ''],
         ];
     smileyArray.sort(sortSmileys);
