@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.21
+// @version      0.22
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -458,7 +458,7 @@ function usercount(div, multi, room)
     if(!multi)
       width = document.getElementById('sidebar').scrollWidth;
     else
-      width = document.getElementsByClassName('sidebar')[0].scrollWidth;
+      width = div.getElementsByClassName('sidebar')[0].scrollWidth;
     var offset = Math.round(width/20);
     d.setAttribute('style', 'position: absolute; bottom: 3px; left: '+offset+'px; width: '+(width-(offset*2))+'px; text-align: center;');
     if(!multi)
