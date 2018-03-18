@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.20
+// @version      0.21
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -137,10 +137,72 @@
     //["::", ''],
   ];
   smileyArray.sort(sortSmileys);
+
+  var s=document.createElement('style');
+  s.innerHTML = '@keyframes animateOut { 0% { left: 0px; } 100% { left: 100%; } }\n';
+  s.innerHTML+= '@keyframes animateIn { 0% { left: 100%; transform: scaleX(-1); } 100% { left: 0; transform: scaleX(-1); } }';
+  s.innerHTML+= '@keyframes reanimateOut { 0% { left: 0px; transform: scaleX(-1) } 100% { left: 100%; transform: scaleX(-1); } }\n';
+  s.innerHTML+= '@keyframes reanimateIn { 0% { left: 100%; } 100% { left: 0; } }\n';
+  // Animated text colours
+  s.innerHTML+= '@keyframes usernameColor { 0% { filter:saturate(100%) drop-shadow(0px 0px 0px black) hue-rotate(0deg); -webkit-filter:saturate(100%) drop-shadow(0px 0px 0px black) hue-rotate(0deg); } 50% { filter:saturate(200%) drop-shadow(0px 0px 5px black) hue-rotate(-30deg); -webkit-filter:saturate(200%) drop-shadow(0px 0px 1px black) hue-rotate(-30deg); } 100% { filter:saturate(100%) drop-shadow(0px 0px 0px black) hue-rotate(0deg); -webkit-filter(100%) drop-shadow(0px 0px 0px black) hue-rotate(0deg); } }\n';
+  s.innerHTML+= '@keyframes rainbow{0%{color: #FF002B;} 33%{color: #882BFF; background: rgba(255, 255, 255, 0.4);} 66%{color: #CBFF00; rgba(0,0,0, 0.4);} 100%{color: #FF002B; background: initial;}}\n';
+  document.head.appendChild(s);
+
   var m=document.getElementById('m');
   if(m)
-    m.addEventListener("keydown", hook.bind(undefined, m), false);
-  else
+  {
+    m.addEventListener("keydown", hook.bind(undefined, m, ''), false);
+
+    var a = document.createElement('a');
+    a.href = 'javascript:void(0);';
+    a.addEventListener('click', showSmileys.bind(undefined, ''), false);
+    a.title = 'Custom Smileys';
+    a.setAttribute('style', 'position: absolute; right: 30px; margin-top: 3px; font-size: 21px; color: #454545;');
+    a.innerHTML = '☺';
+    document.getElementById('inputContainer').appendChild(a);
+
+    var ob1=new MutationObserver(usercount.bind(undefined, document, false, ''));
+    ob1.observe(document.getElementById('userlist'), {attributes: true, childList: true, characterData: true});
+    usercount(document.body, false, '');
+
+    var ob=new MutationObserver(animate);
+    var messages=document.getElementsByClassName("messages");
+    if(messages[0].children.length>0 || messages.length===1)
+      messages=messages[0];
+    else
+      messages=messages[1];
+    ob.observe(messages, {attributes: true, childList: true, characterData: true});
+  }
+  if(typeof(roomAdded)!=="undefined")
+  {
+    window.roomAdded=function(roomname)
+    {
+      var div=document.getElementById(roomname);
+      var m=div.getElementsByClassName('m')[0];
+      m.addEventListener("keydown", hook.bind(undefined, m, roomname), false);
+
+      var a = document.createElement('a');
+      a.href = 'javascript:void(0);';
+      a.addEventListener('click', showSmileys.bind(undefined, roomname), false);
+      a.title = 'Custom Smileys';
+      a.setAttribute('style', 'position: absolute; right: 30px; margin-top: 3px; font-size: 21px; color: #454545;');
+      a.innerHTML = '☺';
+      div.getElementsByClassName('inputContainer')[0].appendChild(a);
+
+      var ob1=new MutationObserver(usercount.bind(undefined, div, true, roomname));
+      ob1.observe(div.getElementsByClassName('userlist')[0], {attributes: true, childList: true, characterData: true});
+      usercount(div, true, roomname);
+
+      var ob=new MutationObserver(animate);
+      var messages=div.getElementsByClassName("messages");
+      if(messages[0].children.length>0 || messages.length===1)
+        messages=messages[0];
+      else
+        messages=messages[1];
+      ob.observe(messages, {attributes: true, childList: true, characterData: true});
+    };
+  }
+  /*else
   {
     window.processMessage=function(message)
     {
@@ -163,27 +225,36 @@
       {
         var s = smileyArray[i];
         var r=new RegExp(s[0].replace(/\\/g, "\\\\").replace(/\^/g, "\\^")+"(?!\\[\\/emo)", "g");
-        message = message.replace(r, "[emo="+s[1]+"]"+s[0]+"[/emo]");
+        //message = message.replace(r, "[emo="+s[1]+"]"+s[0]+"[/emo]");
+        message=nonCodeReplace(r, "[emo="+s[1]+"]"+s[0]+"[/emo]", message);
       }
       return message;
     };
+  }*/
+
+  function nonCodeReplace(regex, replacement, message)
+  {
+    var split=message.split('[code]');
+    var text1=split[0].replace(regex, replacement);
+    for(var i=1; i<split.length; i++)
+    {
+      var split2=split[i].split('[/code]');
+      text1+='[code]'+split2[0]+'[/code]';
+      for(var j=1; j<split2.length; j++)
+      {
+        text1+=split2[j].replace(regex, replacement);
+      }
+    }
+    return text1;
   }
 
-  /*var a = document.createElement('a');
-  a.href = 'javascript:void(0);';
-  a.addEventListener('click', showSmileys, false);
-  a.title = 'Custom Smileys';
-  a.setAttribute('style', 'position: absolute; right: 30px; margin-top: 3px; font-size: 21px; color: #454545;');
-  a.innerHTML = '☺';
-  document.getElementById('inputContainer').appendChild(a);*/
-
-  function hook(m, event)
+  function hook(m, room, event)
   {
     if(event.which == 10 || event.which == 13)
     {
       if(m.value == "/show customSmileys")
       {
-        showSmileys();
+        showSmileys(room);
         m.value = "";
         return;
       }
@@ -200,9 +271,9 @@
       }
     }
   }
-  function showSmileys()
+  function showSmileys(room)
   {
-    var div1=document.getElementById('customSmileyOverlay');
+    var div1=document.getElementById('customSmileyOverlay'+room);
     if(div1)
     {
       close(div1);
@@ -210,7 +281,11 @@
     }
     div1=document.createElement('div');
     div1.id = 'customSmileyOverlay';
-    var h=document.getElementById('m').clientHeight;
+    var h=document.getElementById('m');
+    if(h)
+      h=h.clientHeight;
+    else
+      h=document.getElementById(room).getElementsByClassName('m')[0].clientHeight;
     div1.setAttribute('style', 'position: fixed; top: 0; left: 0; right: 0; margin: auto; max-height: calc(100% - 60px); background: rgba(0, 0, 0, 0.7); overflow-y: scroll; text-align: center;');
     document.body.appendChild(div1);
     var div=document.createElement('div');
@@ -323,27 +398,34 @@
   // Animated text colours
   s.innerHTML+= '@keyframes usernameColor { 0% { filter:saturate(100%) drop-shadow(0px 0px 0px black) hue-rotate(0deg); -webkit-filter:saturate(100%) drop-shadow(0px 0px 0px black) hue-rotate(0deg); } 50% { filter:saturate(200%) drop-shadow(0px 0px 5px black) hue-rotate(-30deg); -webkit-filter:saturate(200%) drop-shadow(0px 0px 1px black) hue-rotate(-30deg); } 100% { filter:saturate(100%) drop-shadow(0px 0px 0px black) hue-rotate(0deg); -webkit-filter(100%) drop-shadow(0px 0px 0px black) hue-rotate(0deg); } }\n';
   s.innerHTML+= '@keyframes rainbow{0%{color: #FF002B;} 33%{color: #882BFF; background: rgba(255, 255, 255, 0.4);} 66%{color: #CBFF00; rgba(0,0,0, 0.4);} 100%{color: #FF002B; background: initial;}}\n';
-  document.head.appendChild(s);
+  document.head.appendChild(s);*/
 
   if(window.localStorage.shh_hackery == "true")
   {
     shh_hackery();
-  }*/
+  }
 })();
 
-function usercount()
+function usercount(div, multi, room)
 {
   if(window.localStorage.shh_hackery != "true")
     return;
-  var usercount = document.getElementById('usercount');
+  var usercount = document.getElementById('usercount'+room);
   if(!usercount)
   {
     usercount = document.createElement('div');
-    usercount.id = 'usercount';
+    usercount.id = 'usercount'+room;
     usercount.setAttribute('style', 'position: absolute; left: 13px; top: 8px;');
-    document.getElementById('nav').appendChild(usercount);
+    if(!multi)
+      document.getElementById('nav').appendChild(usercount);
+    else
+      div.getElementsByClassName('nav')[0].appendChild(usercount);
   }
-  var lis=document.getElementById('userlist').getElementsByTagName('li');
+  var lis;
+  if(!multi)
+    lis=document.getElementById('userlist').getElementsByTagName('li');
+  else
+    lis=div.getElementsByClassName('userlist')[0].getElementsByTagName('li');
   var count=lis.length;
   usercount.innerHTML = count+' user';
   if(count != 1)
@@ -354,13 +436,13 @@ function usercount()
   {
     users.push(lis[i].innerHTML);
   }
-  var d = document.getElementById('log_div');
+  var d = document.getElementById('log_div'+room);
   if(users.length == 0)
     return;
   if(!d)
   {
     var d = document.createElement('div');
-    d.setAttribute('id', 'log_div');
+    d.setAttribute('id', 'log_div'+room);
     var da=new Date();
     var h=da.getHours()+'';
     if(h.length == 1)
@@ -371,10 +453,17 @@ function usercount()
     var dateString = h+':'+m+' ';
     d.innerHTML = dateString;
     d.innerHTML += 'Connected';
-    var width = document.getElementById('sidebar').scrollWidth;
+    var width;
+    if(!multi)
+      width = document.getElementById('sidebar').scrollWidth;
+    else
+      width = document.getElementsByClassName('sidebar')[0].scrollWidth;
     var offset = Math.round(width/20);
     d.setAttribute('style', 'position: absolute; bottom: 3px; left: '+offset+'px; width: '+(width-(offset*2))+'px; text-align: center;');
-    document.getElementById('sidebar').appendChild(d);
+    if(!multi)
+      document.getElementById('sidebar').appendChild(d);
+    else
+      div.getElementsByClassName('sidebar')[0].appendChild(d);
     d.setAttribute('oldUserlist', JSON.stringify(users));
   }
   else
@@ -382,7 +471,7 @@ function usercount()
     var oldUserlist=d.getAttribute('oldUserlist');
     d.setAttribute('oldUserlist', JSON.stringify(users));
     if(oldUserlist)
-      oldUserlist=JSON.parse(oldUserlist)
+      oldUserlist=JSON.parse(oldUserlist);
     else
       oldUserlist=[];
     var newUser=false;
