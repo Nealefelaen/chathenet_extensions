@@ -165,7 +165,7 @@
     ob1.observe(document.getElementById('userlist'), {attributes: true, childList: true, characterData: true});
     usercount(document.body, false, '');
 
-    var ob=new MutationObserver(animate);
+    var ob=new MutationObserver(animate.bind(undefined, document));
     var messages=document.getElementsByClassName("messages");
     if(messages[0].children.length>0 || messages.length===1)
       messages=messages[0];
@@ -193,12 +193,13 @@
       ob1.observe(div.getElementsByClassName('userlist')[0], {attributes: true, childList: true, characterData: true});
       usercount(div, true, roomname);
 
-      var ob=new MutationObserver(animate);
+      var ob=new MutationObserver(animate.bind(undefined, div));
       var messages=div.getElementsByClassName("messages");
       if(messages[0].children.length>0 || messages.length===1)
         messages=messages[0];
       else
         messages=messages[1];
+      console.log(messages);
       ob.observe(messages, {attributes: true, childList: true, characterData: true});
     };
   }
@@ -708,9 +709,9 @@ function shareTime()
   }
 }
 
-function animate()
+function animate(div)
 {
-  var lis=document.getElementsByTagName('li');
+  var lis=div.getElementsByTagName('li');
   var li=lis[lis.length-1];
   var span=li.getElementsByTagName('span');
   if(span.length > 1)
