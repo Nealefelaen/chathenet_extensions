@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.22
+// @version      0.23
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -91,7 +91,7 @@
     [":clapping:", 'https://i.imgur.com/NaLK3Jm.gif'],
     [":pirate:", 'https://i.imgur.com/iJTod2k.gif'],
     [":shh:", 'https://i.imgur.com/vwkt4Ln.gif'],
-    [":glee:", 'https://i.imgur.com/sjhEDXX.gif'],
+    [":glee2:", 'https://i.imgur.com/sjhEDXX.gif'],
     [":shrug2:", 'https://i.imgur.com/HC3bDbE.gif'],
     [":boom:", 'https://i.imgur.com/86RrXiM.gif'],
     [":machinegun:", 'https://i.imgur.com/5Qobtmc.gif'],
@@ -134,6 +134,17 @@
     [":policecar:", 'https://chathe.net/images/emoji/oncoming_police_car.png'],
     [":puke:", 'https://orig00.deviantart.net/445b/f/2009/178/e/0/puking_emoticon_by_sheep0creator.gif'],
     [":timeflies:", 'https://ptpimg.me/muw015.gif'],
+    [":tumbleweed:", 'https://www.est1892.co.uk/forums/images/smilies/liverpool/tumble.gif'],
+    [":beatingADeadHorse:", 'https://www.est1892.co.uk/forums/images/smilies/liverpool/horse.gif'],
+    [":omg2:", 'https://www.est1892.co.uk/forums/images/smilies/liverpool/jawdrop.gif'],
+    [":digging:", 'https://www.est1892.co.uk/forums/images/smilies/liverpool/dig.gif'],
+    [":surrender:", 'https://www.est1892.co.uk/forums/images/smilies/liverpool/flag.gif'],
+    [":rockOn:", 'https://www.est1892.co.uk/forums/images/smilies/liverpool/rockon.gif'],
+    [":jedi:", 'https://www.est1892.co.uk/forums/images/smilies/liverpool/jedi.gif'],
+    [":crash:", 'https://www.est1892.co.uk/forums/images/smilies/liverpool/bike.gif'],
+    [":stir:", 'https://www.est1892.co.uk/forums/images/smilies/liverpool/stir.gif'],
+    [":poke:", 'https://img00.deviantart.net/4628/i/2005/235/9/0/__the___omg_poke_by_dutchie17.gif'],
+    //["::", ''],
     //["::", ''],
   ];
   smileyArray.sort(sortSmileys);
