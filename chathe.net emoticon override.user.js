@@ -88,6 +88,7 @@
     [":hmm:", 'https://i.imgur.com/qG9dNqC.gif'],
     [":rofl2:", 'https://i.imgur.com/f01eCWs.gif'],
     [":seeingstars:", 'https://i.imgur.com/6HrAO1l.gif'],
+    [":clap:", 'https://orig00.deviantart.net/0a94/f/2009/172/b/e/clap_remake_1b_by_nillemotes.gif'],
     [":clapping:", 'https://i.imgur.com/NaLK3Jm.gif'],
     [":pirate:", 'https://i.imgur.com/iJTod2k.gif'],
     [":shh:", 'https://i.imgur.com/vwkt4Ln.gif'],
