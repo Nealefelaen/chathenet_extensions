@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.23
+// @version      0.24
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -145,7 +145,9 @@
     [":crash:", 'https://www.est1892.co.uk/forums/images/smilies/liverpool/bike.gif'],
     [":stir:", 'https://www.est1892.co.uk/forums/images/smilies/liverpool/stir.gif'],
     [":poke:", 'https://img00.deviantart.net/4628/i/2005/235/9/0/__the___omg_poke_by_dutchie17.gif'],
-    //["::", ''],
+    [":eyebrow:", 'https://img00.deviantart.net/efc7/i/2005/201/f/e/the_eyebrow_by_brokenboulevard.gif'],
+    [":hahano:", 'https://e.deviantart.net/emoticons/s/sarcasm.gif'],
+    [":sarcasticclap:", 'https://e.deviantart.net/emoticons/s/sarcasticclap.gif'],
     //["::", ''],
   ];
   smileyArray.sort(sortSmileys);
