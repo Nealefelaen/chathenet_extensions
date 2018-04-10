@@ -148,6 +148,9 @@
     [":eyebrow:", 'https://img00.deviantart.net/efc7/i/2005/201/f/e/the_eyebrow_by_brokenboulevard.gif'],
     [":hahano:", 'https://e.deviantart.net/emoticons/s/sarcasm.gif'],
     [":sarcasticclap:", 'https://e.deviantart.net/emoticons/s/sarcasticclap.gif'],
+    [":stealthglomp:", 'https://orig00.deviantart.net/7a66/f/2008/284/5/f/_stealthglomp__by_synfull.gif'],
+    //["::", ''],
+    //["::", ''],
     //["::", ''],
   ];
   smileyArray.sort(sortSmileys);
