@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.26
+// @version      0.28
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -25,7 +25,7 @@
     [":w00t:", 'https://e.deviantart.net/emoticons/w/w00t.gif'],
     [":\\", 'https://e.deviantart.net/emoticons/h/hmm2.gif'],
     [":floating:", 'https://e.deviantart.net/emoticons/f/floating.gif'],
-    [":greenstars:", 'https://www.pic4ever.com/images/greenstars.gif'],
+    [":greenstars:", 'https://i.imgur.com/Lb3xDCY.gif'],
     [":giggle:", 'https://e.deviantart.net/emoticons/g/giggle.gif'],
     [":blowkiss:", 'https://e.deviantart.net/emoticons/b/blowkiss.gif'],
     [":wtf:", 'https://e.deviantart.net/emoticons/w/wtf2.gif'],
