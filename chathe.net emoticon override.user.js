@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.25
+// @version      0.26
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -151,6 +151,10 @@
     [":stealthglomp:", 'https://orig00.deviantart.net/7a66/f/2008/284/5/f/_stealthglomp__by_synfull.gif'],
     [">.<", 'https://ptpimg.me/yl03u7.png'],
     [":deadchat:", 'https://orig00.deviantart.net/dadd/f/2007/096/4/8/_deadchat__by_taimotive.gif'],
+    [":waiting:", 'https://orig00.deviantart.net/8b63/f/2009/177/1/a/_waiting__by_caeser1993.gif'],
+    //["::", ''],
+    //["::", ''],
+    //["::", ''],
     //["::", ''],
   ];
   smileyArray.sort(sortSmileys);
