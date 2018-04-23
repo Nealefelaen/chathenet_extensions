@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.28
+// @version      0.3
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -394,6 +394,21 @@
 
     var a=document.createElement('a');
     div1.appendChild(a);
+    a.href = ('javascript:void(0);');
+    a.addEventListener('click', toggle_sidebar.bind(undefined, a), false);
+    if(window.localStorage.shh_sidebar == "false")
+    {
+      a.innerHTML = "Sidebar is off";
+    }
+    else
+    {
+      a.innerHTML = "Sidebar is on";
+    }
+
+    div1.appendChild(document.createElement('br'));
+
+    var a=document.createElement('a');
+    div1.appendChild(a);
     a.href = 'javascript:void(0);';
     a.innerHTML = '[Close]';
     a.addEventListener('click', close.bind(undefined, div1), false);
@@ -579,6 +594,21 @@ function toggle_usernames(a)
     a.innerHTML = 'Custom usernames are on';
   }
 }
+function toggle_sidebar(a)
+{
+  if(a.innerHTML.indexOf('on') != -1)
+  {
+    window.localStorage.shh_sidebar = "false";
+    a.innerHTML = "Sidebar is off";
+    shh_hackery();
+  }
+  else
+  {
+    window.localStorage.shh_sidebar = "true";
+    shh_hackery();
+    a.innerHTML = 'Sidebar is on';
+  }
+}
 function toggle_hackery(a)
 {
   if(a.innerHTML.indexOf('on') != -1)
@@ -596,6 +626,42 @@ function toggle_hackery(a)
 
 function shh_hackery()
 {
+  var ss=[document.getElementById('sidebar')];
+  var ms=[document.getElementById('messagescroll')];
+  if(!ss[0])
+  {
+    ss=document.getElementsByClassName('sidebar');
+  }
+  if(!ms[0])
+  {
+    ms=document.getElementsByClassName('messagescroll');
+  }
+  if(window.localStorage.shh_sidebar==="false")
+  {
+    for(var i=0; i<ss.length; i++)
+    {
+      var s=ss[i];
+      s.setAttribute('style', 'display:none;');
+    }
+    for(var i=0; i<ms.length; i++)
+    {
+      var m=ms[i];
+      m.setAttribute('style', 'width: 100% !important;');
+    }
+  }
+  else
+  {
+    for(var i=0; i<ss.length; i++)
+    {
+      var s=ss[i];
+      s.setAttribute('style', '');
+    }
+    for(var i=0; i<ms.length; i++)
+    {
+      var m=ms[i];
+      m.setAttribute('style', '');
+    }
+  }
   // add a highlight for 5 seconds to changed users in the user list
   // .. didn't really work
   /*var userlist = document.getElementById('userlist');
