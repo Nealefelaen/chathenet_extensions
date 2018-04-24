@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.3
+// @version      0.31
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -152,7 +152,7 @@
     [">.<", 'https://ptpimg.me/yl03u7.png'],
     [":deadchat:", 'https://orig00.deviantart.net/dadd/f/2007/096/4/8/_deadchat__by_taimotive.gif'],
     [":waiting:", 'https://orig00.deviantart.net/8b63/f/2009/177/1/a/_waiting__by_caeser1993.gif'],
-    //["::", ''],
+    [":sadnod:", 'https://img00.deviantart.net/7cf1/i/2004/247/9/0/sad_nod_emote.gif'],
     //["::", ''],
     //["::", ''],
     //["::", ''],
