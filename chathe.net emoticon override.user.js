@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.37
+// @version      0.38
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -62,7 +62,7 @@
     [":O", 'https://i.imgur.com/JGzmkc0.gif'],
     [":-O", 'http://e.deviantart.net/emoticons/e/eek.gif'],
     [":wave:", 'https://i.imgur.com/OR5qCzd.gif'],
-    [":sadpanda:", 'http://digital-impulse.com/wp-includes/images/smilies/digicons-SadPanda.png'],
+    [":sadpanda:", 'https://orig00.deviantart.net/74b1/f/2009/287/8/2/panda_by_sarahcoolyonumber1.gif'],
     [":paddle:", 'https://static.passthepopcorn.me/static/common/smileys/paddle.gif'],
     [":phew:", 'http://i.imgur.com/6IIOT2l.gif'],
     [":phew2:", 'http://i.imgur.com/KVt6UE1.gif'],
@@ -101,7 +101,7 @@
     [":clown:", 'https://i.imgur.com/io2EUgG.gif'],
     [":lol:", 'https://i.imgur.com/WC1MPn1.gif'],
     [":writing:", 'https://orig10.deviantart.net/2b4c/f/2007/060/d/9/writing_emoticon_by_eburt.gif'],
-    [":coding:", 'https://orig13.deviantart.net/b2ec/f/2009/207/7/7/code_monkey_by_mirz123.gif'],
+    [":coding:", 'https://orig00.deviantart.net/4bba/f/2015/307/9/9/codemonkey_by_kitlightning-d9fes2h.gif'],
     [":tighthug:", 'https://e.deviantart.net/emoticons/t/tighthug.gif'],
     [":thunder:", 'https://img11.deviantart.net/c8d1/i/2006/024/1/b/_thunder__by_mrichston.gif'],
     [":violin:", 'https://img05.deviantart.net/58d2/i/2005/140/c/a/_violin__by_clairebearer.gif'],
@@ -124,13 +124,13 @@
     [":ghost:", 'https://img02.deviantart.net/2c93/i/2006/296/e/4/_ghost_by_sml_e.gif'],
     [":pumpkin_omg:", 'https://orig08.deviantart.net/20c6/f/2010/293/0/f/pumpkin_la_by_snowshi-d315psk.gif'],
     [":halloween_wave:", 'https://orig15.deviantart.net/03ab/f/2011/283/1/4/october_emtc_entry_by_otohime0394-d4ce255.gif'],
-    [":monstermash:", 'https://orig04.deviantart.net/2184/f/2011/303/b/8/monster_mash_by_mirz123-d4egehi.gif'],
+    //[":monstermash:", 'https://orig04.deviantart.net/2184/f/2011/303/b/8/monster_mash_by_mirz123-d4egehi.gif'],
     [":owlnoid:", 'https://orig13.deviantart.net/4299/f/2014/053/3/d/3d1a858312d2ae72bc1342244103cb38-d1l8bbz.gif'],
     [":suspicious:", 'https://img03.deviantart.net/21c5/i/2006/008/a/d/_suspicious_by_sml_e.gif'],
     [":glee:", 'https://orig09.deviantart.net/a7f9/f/2008/276/e/6/_squee__by_synfull.gif'],
     ["\\o/", 'https://orig08.deviantart.net/8b49/f/2011/146/d/6/yay_by_sml_e-d2hje6p.gif'],
     [":fingerscrossed:", 'https://i.imgur.com/4HPA0j4.png'],
-    [":police:", 'https://orig00.deviantart.net/60b7/f/2011/124/f/4/policeman_emote_by_mirz123-d3fk1qs.png'],
+    [":police:", 'https://orig00.deviantart.net/73da/f/2007/356/8/3/832ae52e1b8221b9.gif'],
     [":hitandrun:", 'https://orig00.deviantart.net/ca85/f/2009/058/0/d/onashii___hit_and_run_by_emoticiety.gif'],
     [":policecar:", 'https://chathe.net/images/emoji/oncoming_police_car.png'],
     [":puke:", 'https://orig00.deviantart.net/445b/f/2009/178/e/0/puking_emoticon_by_sheep0creator.gif'],
