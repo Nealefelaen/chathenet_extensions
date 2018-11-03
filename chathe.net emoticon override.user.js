@@ -62,7 +62,7 @@
     [":O", 'https://i.imgur.com/JGzmkc0.gif'],
     [":-O", 'http://e.deviantart.net/emoticons/e/eek.gif'],
     [":wave:", 'https://i.imgur.com/OR5qCzd.gif'],
-    [":sadpanda:", 'https://orig00.deviantart.net/74b1/f/2009/287/8/2/panda_by_sarahcoolyonumber1.gif'],
+    [":sadpanda:", 'https://i.imgur.com/LxQNjEt.png'],
     [":paddle:", 'https://static.passthepopcorn.me/static/common/smileys/paddle.gif'],
     [":phew:", 'http://i.imgur.com/6IIOT2l.gif'],
     [":phew2:", 'http://i.imgur.com/KVt6UE1.gif'],
