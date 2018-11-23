@@ -124,7 +124,7 @@
     [":ghost:", 'https://img02.deviantart.net/2c93/i/2006/296/e/4/_ghost_by_sml_e.gif'],
     [":pumpkin_omg:", 'https://orig08.deviantart.net/20c6/f/2010/293/0/f/pumpkin_la_by_snowshi-d315psk.gif'],
     [":halloween_wave:", 'https://orig15.deviantart.net/03ab/f/2011/283/1/4/october_emtc_entry_by_otohime0394-d4ce255.gif'],
-    //[":monstermash:", 'https://orig04.deviantart.net/2184/f/2011/303/b/8/monster_mash_by_mirz123-d4egehi.gif'],
+    [":monstermash:", 'https://i.imgur.com/7ekhCqT.gif'],
     [":owlnoid:", 'https://orig13.deviantart.net/4299/f/2014/053/3/d/3d1a858312d2ae72bc1342244103cb38-d1l8bbz.gif'],
     [":suspicious:", 'https://img03.deviantart.net/21c5/i/2006/008/a/d/_suspicious_by_sml_e.gif'],
     [":glee:", 'https://orig09.deviantart.net/a7f9/f/2008/276/e/6/_squee__by_synfull.gif'],
