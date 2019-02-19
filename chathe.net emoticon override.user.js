@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.4
+// @version      0.41
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -13,7 +13,7 @@
   document.body.setAttribute('style', 'overflow-x: hidden;');
   var smileyArray = [
     [":P", 'https://static.passthepopcorn.me/static/common/smileys/tongue.gif'],
-    [":D", 'http://www.pimped-pixels.net/forum/public/style_emoticons/default/th_mw_grin.gif'],
+    [":D", 'https://ptpimg.me/2rw827.gif'],
     [":tea:", 'https://ptpimg.me/nr8hqi.gif'],
     [":chameleon:", 'http://www.allmystery.de/i/t659323_ChamC3A4leon.gif'],
     [":tux:", 'https://e.deviantart.net/emoticons/t/tux.gif'],
