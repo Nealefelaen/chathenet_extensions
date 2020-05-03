@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.44
+// @version      0.46
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -9,7 +9,7 @@
 
 (function() {
   'use strict';
-  
+
   if(window.localStorage.shh_hackery == "true")
   {
     var s=document.createElement('style');
@@ -180,6 +180,47 @@
   s.innerHTML+= '@keyframes rainbow{0%{color: #FF002B;} 33%{color: #882BFF; background: rgba(255, 255, 255, 0.4);} 66%{color: #CBFF00; rgba(0,0,0, 0.4);} 100%{color: #FF002B; background: initial;}}\n';
   document.head.appendChild(s);
 
+  var ob=new MutationObserver(newRoom);
+  ob.observe(document.getElementsByClassName('room')[0].parentNode, {attributes:true, childList:true, characterData:true});
+  newRoom();
+
+  function newRoom()
+  {
+    var rooms=document.getElementsByClassName('room');
+    for(var i=1; i<rooms.length; i++)
+    {
+      var room=rooms[i];
+      if(room.getAttribute('customSmileys')=='true')
+      {
+        continue;
+      }
+      room.setAttribute('customSmileys', 'true');
+
+      room.getElementsByClassName('sidebar')[0].style.position='relative';
+
+      var m=room.getElementsByClassName('m')[0];
+
+      m.addEventListener("keydown", hook.bind(undefined, m, ''), false);
+
+      var a = document.createElement('a');
+      a.href = 'javascript:void(0);';
+      a.addEventListener('click', showSmileys.bind(undefined, ''), false);
+      a.title = 'Custom Smileys';
+      a.setAttribute('style', 'position: absolute; right: 35px; margin-top: 3px; font-size: 21px; color: #454545;');
+      a.innerHTML = '☺';
+      room.getElementsByClassName('inputContainer')[0].appendChild(a);
+
+      var ob1=new MutationObserver(usercount.bind(undefined, room, room.id));
+      ob1.observe(room.getElementsByClassName('userlist')[0], {attributes: true, childList: true, characterData: true});
+      usercount(room, room.id);
+
+      var messages=room.getElementsByClassName("messages")[0];
+      var ob=new MutationObserver(animate.bind(undefined, messages));
+      ob.observe(messages, {attributes: true, childList: true, characterData: true});
+    }
+  }
+
+  /*
   var m=document.getElementById('m');
   if(m)
   {
@@ -235,7 +276,7 @@
       ob.observe(messages, {attributes: true, childList: true, characterData: true});
     };
   }
-  /*else
+  / *else
   {
     window.processMessage=function(message)
     {
@@ -454,7 +495,7 @@
   }
 })();
 
-function usercount(div, multi, room)
+function usercount(div, room)
 {
   if(window.localStorage.shh_hackery != "true")
     return;
@@ -464,16 +505,10 @@ function usercount(div, multi, room)
     usercount = document.createElement('div');
     usercount.id = 'usercount'+room;
     usercount.setAttribute('style', 'position: absolute; left: 13px; top: 8px;');
-    if(!multi)
-      document.getElementById('nav').appendChild(usercount);
-    else
-      div.getElementsByClassName('nav')[0].appendChild(usercount);
+    div.getElementsByClassName('nav')[0].appendChild(usercount);
   }
   var lis;
-  if(!multi)
-    lis=document.getElementById('userlist').getElementsByTagName('li');
-  else
-    lis=div.getElementsByClassName('userlist')[0].getElementsByTagName('li');
+  lis=div.getElementsByClassName('userlist')[0].getElementsByTagName('li');
   var count=lis.length;
   usercount.innerHTML = count+' user';
   if(count != 1)
@@ -502,16 +537,10 @@ function usercount(div, multi, room)
     d.innerHTML = dateString;
     d.innerHTML += 'Connected';
     var width;
-    if(!multi)
-      width = document.getElementById('sidebar').scrollWidth;
-    else
-      width = div.getElementsByClassName('sidebar')[0].scrollWidth;
+    width = div.getElementsByClassName('sidebar')[0].scrollWidth;
     var offset = Math.round(width/20);
     d.setAttribute('style', 'position: absolute; bottom: 3px; left: '+offset+'px; width: '+(width-(offset*2))+'px; text-align: center;');
-    if(!multi)
-      document.getElementById('sidebar').appendChild(d);
-    else
-      div.getElementsByClassName('sidebar')[0].appendChild(d);
+    div.getElementsByClassName('sidebar')[0].appendChild(d);
     d.setAttribute('oldUserlist', JSON.stringify(users));
   }
   else
@@ -792,26 +821,26 @@ function animateUsername(span)
     }
     if(span.innerHTML == "&lt;repairmanman&gt;")
     {
-      span.innerHTML='&lt;<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">r</span>'+
-'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">e</span>'+
-'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">p</span>'+
-'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">a</span>'+
-'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">i</span>'+
-'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">r</span>'+
-'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">m</span>'+
-'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">a</span>'+
-'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">n</span>'+
-'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">m</span>'+
-'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">a</span>'+
-'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">n</span>'+
-'&gt;'
+      span.innerHTML='&lt;<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">r</span>'+
+        '<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">e</span>'+
+        '<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">p</span>'+
+        '<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">a</span>'+
+        '<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">i</span>'+
+        '<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">r</span>'+
+        '<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">m</span>'+
+        '<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">a</span>'+
+        '<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">n</span>'+
+        '<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">m</span>'+
+        '<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">a</span>'+
+        '<span style="position:relative; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">n</span>'+
+        '&gt;'
     }
   }
 }
 
 function r(first, second)
 {
-  return Math.round(Math.random()*(second-first))+first;
+  return (Math.random()*(second-first))+first;
 }
 
 function shareTime()
