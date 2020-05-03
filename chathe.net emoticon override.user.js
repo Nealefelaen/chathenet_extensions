@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.42
+// @version      0.43
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -783,7 +783,28 @@ function animateUsername(span)
     {
       span.innerHTML = "&lt;<span style='animation: rainbow 20s infinite; border-radius: 30px;'>Nana</span>&gt;";
     }
+    if(span.innerHTML == "&lt;repairmanman&gt;")
+    {
+      span.innerHTML='&lt;<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">r</span>'+
+'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">e</span>'+
+'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">p</span>'+
+'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">a</span>'+
+'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">i</span>'+
+'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">r</span>'+
+'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">m</span>'+
+'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">a</span>'+
+'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">n</span>'+
+'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">m</span>'+
+'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">a</span>'+
+'<span style="position:relative; display:inline-block; top:'+(r(-3,3))+'px; transform:rotate('+r(-20,20)+'deg);">n</span>'+
+'&gt;'
+    }
   }
+}
+
+function r(first, second)
+{
+  return Math.round(Math.random()*(second-first))+first;
 }
 
 function shareTime()
