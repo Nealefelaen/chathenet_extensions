@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.47
+// @version      0.48
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -201,11 +201,11 @@
 
       var m=room.getElementsByClassName('m')[0];
 
-      m.addEventListener("keydown", hook.bind(undefined, m, ''), false);
+      m.addEventListener("keydown", hook.bind(undefined, m, room), false);
 
       var a = document.createElement('a');
       a.href = 'javascript:void(0);';
-      a.addEventListener('click', showSmileys.bind(undefined, ''), false);
+      a.addEventListener('click', showSmileys.bind(undefined, room), false);
       a.title = 'Custom Smileys';
       a.setAttribute('style', 'position: absolute; right: 30px; top:0px; margin-top: 3px; font-size: 21px; color: #454545;');
       a.innerHTML = '☺';
@@ -348,7 +348,7 @@
   }
   function showSmileys(room)
   {
-    var div1=document.getElementById('customSmileyOverlay'+room);
+    var div1=document.getElementById('customSmileyOverlay'+room.id);
     if(div1)
     {
       close(div1);
@@ -356,11 +356,7 @@
     }
     div1=document.createElement('div');
     div1.id = 'customSmileyOverlay';
-    var h=document.getElementById('m');
-    if(h)
-      h=h.clientHeight;
-    else
-      h=document.getElementById(room).getElementsByClassName('m')[0].clientHeight;
+    var h=room.getElementsByClassName('m')[0].clientHeight;
     div1.setAttribute('style', 'position: fixed; top: 0; left: 0; right: 0; margin: auto; max-height: calc(100% - 60px); background: rgba(0, 0, 0, 0.7); overflow-y: scroll; text-align: center;');
     document.body.appendChild(div1);
     var div=document.createElement('div');
