@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.46
+// @version      0.47
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -10,12 +10,13 @@
 (function() {
   'use strict';
 
-  if(window.localStorage.shh_hackery == "true")
-  {
-    var s=document.createElement('style');
-    s.innerHTML='.sidebar { position:relative; }';
-    document.head.appendChild(s);
-  }
+  var s=document.createElement('style');
+  s.innerHTML='.sidebar { position:relative; }'+
+    '.inputContainer { position:relative;}'+
+    '.announcement { width:initial; }'+
+    '.reviewscroll { width:initial; }'+
+    '.messagescroll { width:initial; }';
+  document.head.appendChild(s);
 
   document.body.setAttribute('style', 'overflow-x: hidden;');
   var smileyArray = [
@@ -206,7 +207,7 @@
       a.href = 'javascript:void(0);';
       a.addEventListener('click', showSmileys.bind(undefined, ''), false);
       a.title = 'Custom Smileys';
-      a.setAttribute('style', 'position: absolute; right: 35px; margin-top: 3px; font-size: 21px; color: #454545;');
+      a.setAttribute('style', 'position: absolute; right: 30px; top:0px; margin-top: 3px; font-size: 21px; color: #454545;');
       a.innerHTML = '☺';
       room.getElementsByClassName('inputContainer')[0].appendChild(a);
 
