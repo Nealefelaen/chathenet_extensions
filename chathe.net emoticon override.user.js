@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.49
+// @version      0.50
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -23,7 +23,7 @@
     [":P", 'https://static.passthepopcorn.me/static/common/smileys/tongue.gif'],
     [":D", 'https://ptpimg.me/2rw827.gif'],
     [":tea:", 'https://ptpimg.me/nr8hqi.gif'],
-    [":chameleon:", 'http://www.allmystery.de/i/t659323_ChamC3A4leon.gif'],
+    [":chameleon:", 'https://www.allmystery.de/i/t659323_ChamC3A4leon.gif'],
     [":tux:", 'https://e.deviantart.net/emoticons/t/tux.gif'],
     [":lmao:", 'https://e.deviantart.net/emoticons/l/lmao.gif'],
     [":popcorn:", 'https://e.deviantart.net/emoticons/p/popcorn2.gif'],
@@ -68,12 +68,12 @@
     [":meditation:", 'https://e.deviantart.net/emoticons/m/meditate.gif'],
     [":movingon:", 'https://e.deviantart.net/emoticons/m/movingon.gif'],
     [":O", 'https://i.imgur.com/JGzmkc0.gif'],
-    [":-O", 'http://e.deviantart.net/emoticons/e/eek.gif'],
+    [":-O", 'https://e.deviantart.net/emoticons/e/eek.gif'],
     [":wave:", 'https://i.imgur.com/OR5qCzd.gif'],
     [":sadpanda:", 'https://i.imgur.com/LxQNjEt.png'],
     [":paddle:", 'https://static.passthepopcorn.me/static/common/smileys/paddle.gif'],
-    [":phew:", 'http://i.imgur.com/6IIOT2l.gif'],
-    [":phew2:", 'http://i.imgur.com/KVt6UE1.gif'],
+    [":phew:", 'https://i.imgur.com/6IIOT2l.gif'],
+    [":phew2:", 'https://i.imgur.com/KVt6UE1.gif'],
     [":ninja:", 'https://e.deviantart.net/emoticons/n/ninja.gif'],
     [":ninjaglomp:", 'https://orig05.deviantart.net/0467/f/2009/012/0/4/ninja_glomp_by_cookiemagik.gif'],
     [":ninjaattack:", 'https://orig00.deviantart.net/8beb/f/2010/335/0/8/ninja_attack_by_wisekidk-d340e8s.gif'],
@@ -160,7 +160,7 @@
     [">\.<", 'https://ptpimg.me/yl03u7.png'],
     [":deadchat:", 'https://orig00.deviantart.net/dadd/f/2007/096/4/8/_deadchat__by_taimotive.gif'],
     [":waiting:", 'https://orig00.deviantart.net/8b63/f/2009/177/1/a/_waiting__by_caeser1993.gif'],
-    [":sadnod:", 'https://img00.deviantart.net/7cf1/i/2004/247/9/0/sad_nod_emote.gif'],
+    [":sadnod:", 'https://i.imgur.com/pyL94Br.gif'],
     [":vodka:", 'https://orig00.deviantart.net/31a1/f/2012/032/d/0/d0659fbb8f85883fbf8cc523f6fa5bd7-d2h7ith.gif'],
     [":monorailcat:", 'https://i.imgur.com/lql9kwr.png'],
     [":monorailtrack:", 'https://i.imgur.com/XYJ5igz.png'],
@@ -958,3 +958,4 @@ function resetImage(im)
 {
   im.setAttribute('style', im.getAttribute('originalStyle'));
 }
+  
