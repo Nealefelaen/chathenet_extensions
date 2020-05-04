@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.48
+// @version      0.49
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -355,7 +355,7 @@
       return;
     }
     div1=document.createElement('div');
-    div1.id = 'customSmileyOverlay';
+    div1.id = 'customSmileyOverlay'+room.id;
     var h=room.getElementsByClassName('m')[0].clientHeight;
     div1.setAttribute('style', 'position: fixed; top: 0; left: 0; right: 0; margin: auto; max-height: calc(100% - 60px); background: rgba(0, 0, 0, 0.7); overflow-y: scroll; text-align: center;');
     document.body.appendChild(div1);
