@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.51
+// @version      0.52
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -9,6 +9,11 @@
 
 (function() {
   'use strict';
+
+  var style=document.createElement('style');
+  style.innerHTML='.sidebar { position:relative; }'+
+    '.inputContainer { position:relative; }';
+  document.head.appendChild(style);
 
   document.body.setAttribute('style', 'overflow-x: hidden;');
   var smileyArray = [
