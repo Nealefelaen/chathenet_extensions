@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         chathe.net emoticon override
-// @version      0.52
+// @version      0.53
 // @description  Add custom emoticons to chathe.net
 // @author       Chameleon
 // @include      http*://chathe.net*
@@ -10,10 +10,12 @@
 (function() {
   'use strict';
 
+  /*
   var style=document.createElement('style');
   style.innerHTML='.sidebar { position:relative; }'+
     '.inputContainer { position:relative; }';
   document.head.appendChild(style);
+  */
 
   document.body.setAttribute('style', 'overflow-x: hidden;');
   var smileyArray = [
@@ -200,13 +202,18 @@
 
       m.addEventListener("keydown", hook.bind(undefined, m, room), false);
 
+      var containerDiv=document.createElement('div');
+      //containerDiv.style.position='relative';
+      containerDiv.setAttribute('class', 'infobutton');
+      var ipC=room.getElementsByClassName('inputContainer')[0];
+      ipC.insertBefore(containerDiv, ipC.firstElementChild);
       var a = document.createElement('a');
       a.href = 'javascript:void(0);';
       a.addEventListener('click', showSmileys.bind(undefined, room), false);
       a.title = 'Custom Smileys';
       a.setAttribute('style', 'position: absolute; right: 30px; top:0px; margin-top: 3px; font-size: 21px; color: #454545;');
       a.innerHTML = '☺';
-      room.getElementsByClassName('inputContainer')[0].appendChild(a);
+      containerDiv.appendChild(a);
 
       var ob1=new MutationObserver(usercount.bind(undefined, room, room.id));
       ob1.observe(room.getElementsByClassName('userlist')[0], {attributes: true, childList: true, characterData: true});
