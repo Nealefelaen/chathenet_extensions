@@ -774,7 +774,7 @@ function sortSmileys(a, b)
 
 function addToM(add)
 {
-  document.getElementById('m').value += add;
+  document.querySelectorAll('.m:not([disabled])').value += add;
 }
 
 function animateUsername(span)
